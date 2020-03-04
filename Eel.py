@@ -33,7 +33,7 @@ def assistant_speaks(output):
 @eel.expose
 def start_record():
     ctypes.windll.user32.MessageBoxW(0, "ok", "Message", 1)
-    async_eel.spawn(get_audio())
+    eel.spawn(get_audio())
 
 @eel.expose
 def get_audio():
@@ -53,7 +53,7 @@ def get_audio():
         assistant_speaks("Could not understand your audio, Please try again!")
         return 0
     vLisaTexto = get_audio()
-    async_eel.LisaTextract(vLisaTexto)
+    eel.LisaTextract(vLisaTexto)
     
 
 def end_session():
